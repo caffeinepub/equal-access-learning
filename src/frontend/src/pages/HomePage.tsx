@@ -279,7 +279,7 @@ export default function HomePage({ onNavigate }: Props) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary font-bold px-8"
+                className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold px-8"
                 onClick={() => onNavigate("trivia")}
                 data-ocid="home.test_knowledge.secondary_button"
               >

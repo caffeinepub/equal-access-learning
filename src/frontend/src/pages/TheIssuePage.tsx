@@ -13,6 +13,35 @@ const barriers = [
     badgeColor: "bg-primary text-white",
     desc: "Club dues, uniforms, equipment, registration fees, and camp tuition can easily cost hundreds to thousands of dollars per year. For families below the poverty line, this is simply not possible.",
     stat: "Average cost of youth sports participation: $693/year",
+    accentColor: "red",
+    conflictStats: [
+      {
+        label: "Avg cost of youth sports",
+        value: "$693",
+        note: "per child per year",
+      },
+      {
+        label: "Students who quit due to cost",
+        value: "38%",
+        note: "drop out annually",
+      },
+      {
+        label: "Summer camp tuition range",
+        value: "$800–2K",
+        note: "per program",
+      },
+      {
+        label: "Families below poverty line",
+        value: "11M+",
+        note: "with school-age children",
+      },
+    ],
+    details: [
+      "A single travel sports team can cost $2,000–$5,000 per year once you add uniforms, equipment, and tournament fees",
+      "Free public programs often have long waitlists — in some cities, after-school programs have 2-year waits",
+      "Scholarship programs exist but are rarely advertised to the families who need them most",
+      "Low-income students are 3× less likely to participate in paid extracurriculars than high-income peers",
+    ],
   },
   {
     icon: "🚌",
@@ -22,6 +51,35 @@ const barriers = [
     badgeColor: "bg-orange-500 text-white",
     desc: "Without a car or public transit, students in suburban and rural areas often cannot get to after-school programs. Even urban students face challenges when programs are across town.",
     stat: "Rural students are 2.5x less likely to have access to after-school programs",
+    accentColor: "orange",
+    conflictStats: [
+      {
+        label: "Rural access gap",
+        value: "2.5×",
+        note: "less likely to reach programs",
+      },
+      {
+        label: "Rural households without a car",
+        value: "1 in 3",
+        note: "have no vehicle",
+      },
+      {
+        label: "School bus departure",
+        value: "3:05pm",
+        note: "leaving no time for activities",
+      },
+      {
+        label: "Urban students blocked by distance",
+        value: "27%",
+        note: "cite transport as barrier",
+      },
+    ],
+    details: [
+      "School buses leave immediately after dismissal — any after-school activity requires a separate ride home that many families cannot arrange",
+      "In rural counties, the nearest program can be 20–40 miles away — an hour-plus commute for families without cars",
+      "Even in cities, transit deserts leave students in outer neighborhoods without safe ways to reach programs downtown",
+      "Working parents cannot always leave jobs early to provide transportation — a gap that falls hardest on single-parent households",
+    ],
   },
   {
     icon: "⏰",
@@ -31,6 +89,7 @@ const barriers = [
     badgeColor: "bg-amber-500 text-white",
     desc: "Schools typically have only 1–2 activity periods per day. Popular clubs like debate, robotics, choir, drama, and sports all compete for the same narrow after-school windows — forcing students who love multiple subjects to pick just one. A student who wants to be in both Science Club and Drama Club may literally be unable to join both, not because of lack of interest, but because both meet Tuesday at 3pm. With 15–30 clubs but only 3–5 non-overlapping time slots, the math simply doesn't work. Low-income schools with fewer faculty have even fewer available slots.",
     stat: "Over 70% of students report having to skip or drop a club due to scheduling conflicts with another activity",
+    accentColor: "amber",
     details: [
       "Average school offers 20+ clubs but only 2–3 distinct after-school time slots",
       "45% of club members have dropped a club because it conflicted with another activity they valued equally",
@@ -64,6 +123,35 @@ const barriers = [
     badgeColor: "bg-blue-500 text-white",
     desc: "Tryouts, auditions, and competitive applications favor students who have already had private coaching, lessons, or training. This creates a cycle where resources beget more resources.",
     stat: "Students from high-income families are 2x more likely to have had prior training",
+    accentColor: "blue",
+    conflictStats: [
+      {
+        label: "Prior training advantage",
+        value: "2×",
+        note: "high vs. low-income students",
+      },
+      {
+        label: "Arts programs requiring tryouts",
+        value: "1 in 3",
+        note: "at U.S. schools",
+      },
+      {
+        label: "Private lesson cost",
+        value: "$50–120/hr",
+        note: "music, sports, dance",
+      },
+      {
+        label: "Selective slots by income",
+        value: "60%",
+        note: "go to top income quartile",
+      },
+    ],
+    details: [
+      "Students who can afford private lessons or coaches walk into tryouts with years of prep — a structural advantage invisible in the audition room",
+      "Competitive STEM programs often favor schools with strong feeder networks, further entrenching advantage for already-connected families",
+      "Academic summer programs use applications and essays that favor students at well-resourced schools with college counselors",
+      "The cycle repeats: selective programs build the credentials that unlock the next tier of selective programs",
+    ],
   },
   {
     icon: "👨‍👩‍👧",
@@ -73,6 +161,35 @@ const barriers = [
     badgeColor: "bg-purple-500 text-white",
     desc: "Cultural expectations, caregiving duties, language barriers in communications, and lack of parental awareness about programs all limit participation, especially for first-generation immigrant families.",
     stat: "40% of immigrant families report not knowing about available after-school programs",
+    accentColor: "purple",
+    conflictStats: [
+      {
+        label: "Immigrant families unaware of programs",
+        value: "40%",
+        note: "reported",
+      },
+      {
+        label: "Students who care for siblings after school",
+        value: "1 in 5",
+        note: "in U.S.",
+      },
+      {
+        label: "Teens holding part-time jobs",
+        value: "30%+",
+        note: "ages 14–18",
+      },
+      {
+        label: "Hours lost to caregiving weekly",
+        value: "10–20",
+        note: "for affected students",
+      },
+    ],
+    details: [
+      "Many students are expected to babysit younger siblings or care for elderly relatives immediately after school — with no flexibility or backup",
+      "Families from cultures where extracurriculars aren't recognized may actively discourage participation, seeing it as less important than work or study",
+      "Language barriers mean permission slips and sign-up forms go unread by parents who don't speak English",
+      "Students who work part-time to help support their families have no hours left for enrichment activities — and are rarely given credit for that sacrifice",
+    ],
   },
   {
     icon: "♿",
@@ -82,6 +199,35 @@ const barriers = [
     badgeColor: "bg-teal-500 text-white",
     desc: "Many school clubs and programs lack accommodations for students with physical, cognitive, or sensory disabilities. Despite legal protections, accessibility remains a major barrier.",
     stat: "Only 38% of schools report having fully accessible extracurricular programs",
+    accentColor: "teal",
+    conflictStats: [
+      {
+        label: "Schools with fully accessible programs",
+        value: "38%",
+        note: "only",
+      },
+      {
+        label: "Students with IEPs in U.S. schools",
+        value: "7M+",
+        note: "deserve equal access",
+      },
+      {
+        label: "Extracurricular participation gap",
+        value: "–34%",
+        note: "vs. non-disabled peers",
+      },
+      {
+        label: "Schools meeting IDEA standards",
+        value: "<50%",
+        note: "for extracurriculars",
+      },
+    ],
+    details: [
+      "Despite IDEA and ADA protections, schools are rarely held accountable for making extracurricular programs accessible to students with disabilities",
+      "Clubs held in inaccessible rooms, physical activities without adaptive options, and no sign language interpretation effectively exclude entire populations",
+      "Students with learning disabilities are often steered away from competitive academic programs by well-meaning but biased advisors",
+      "Adaptive sports and arts programs exist in only a fraction of schools, leaving most students with disabilities without a comparable alternative",
+    ],
   },
   {
     icon: "🌍",
@@ -91,6 +237,35 @@ const barriers = [
     badgeColor: "bg-green-600 text-white",
     desc: "Program announcements, permission slips, and communications often only exist in English. Cultural mismatch in activities can also make students feel unwelcome or like they don't belong.",
     stat: "5 million+ K-12 students are English Language Learners",
+    accentColor: "green",
+    conflictStats: [
+      {
+        label: "English Language Learners in K-12",
+        value: "5M+",
+        note: "in U.S. schools",
+      },
+      {
+        label: "Programs with multilingual outreach",
+        value: "<20%",
+        note: "of after-school programs",
+      },
+      {
+        label: "Immigrant families citing cultural mismatch",
+        value: "1 in 4",
+        note: "feel unwelcome",
+      },
+      {
+        label: "Districts offering translated communications",
+        value: "28%",
+        note: "of U.S. districts",
+      },
+    ],
+    details: [
+      "Permission slips, sign-up forms, and activity schedules are rarely translated — parents who don't speak English cannot consent to or register their child",
+      "Activities that center Western cultural traditions can make students from other backgrounds feel like outsiders rather than participants",
+      "In districts with large ELL populations, clubs rarely have ESL-friendly instruction or bilingual peer support",
+      "First-generation immigrant students are often given tools to assimilate academically but not the support to participate socially and extracurricularly",
+    ],
   },
   {
     icon: "📢",
@@ -100,6 +275,35 @@ const barriers = [
     badgeColor: "bg-slate-500 text-white",
     desc: "Low-income students are far less likely to hear about scholarships, free programs, or subsidized activities. Information is shared through informal networks that favor already-connected families.",
     stat: "60% of eligible students don't apply for program scholarships due to lack of awareness",
+    accentColor: "slate",
+    conflictStats: [
+      {
+        label: "Eligible students who skip scholarships",
+        value: "60%",
+        note: "due to unawareness",
+      },
+      {
+        label: "Low-income families using counselors for program info",
+        value: "22%",
+        note: "vs. 61% high-income",
+      },
+      {
+        label: "Community programs not on school websites",
+        value: "1 in 3",
+        note: "go unadvertised",
+      },
+      {
+        label: "Students who found programs via word-of-mouth",
+        value: "70%",
+        note: "not official channels",
+      },
+    ],
+    details: [
+      "Word-of-mouth networks favor students with well-connected families — meaning the same students keep finding the same opportunities",
+      "School counselors are often overwhelmed and cannot personally inform every student about every available program",
+      "Many free and subsidized programs don't know how to reach the families who need them, relying on English flyers sent home in backpacks",
+      "Digital divides mean program websites and social media announcements miss families without reliable internet access",
+    ],
   },
 ];
 
@@ -247,12 +451,60 @@ function StatCallout({ text }: { text: string }) {
   );
 }
 
-function TimeConflictExpansion({
+const accentMap: Record<
+  string,
+  { value: string; border: string; bullet: string }
+> = {
+  red: {
+    value: "text-red-600",
+    border: "border-red-200",
+    bullet: "text-red-500",
+  },
+  orange: {
+    value: "text-orange-600",
+    border: "border-orange-200",
+    bullet: "text-orange-500",
+  },
+  amber: {
+    value: "text-amber-600",
+    border: "border-amber-200",
+    bullet: "text-amber-500",
+  },
+  blue: {
+    value: "text-blue-600",
+    border: "border-blue-200",
+    bullet: "text-blue-500",
+  },
+  purple: {
+    value: "text-purple-600",
+    border: "border-purple-200",
+    bullet: "text-purple-500",
+  },
+  teal: {
+    value: "text-teal-600",
+    border: "border-teal-200",
+    bullet: "text-teal-500",
+  },
+  green: {
+    value: "text-green-600",
+    border: "border-green-200",
+    bullet: "text-green-500",
+  },
+  slate: {
+    value: "text-slate-600",
+    border: "border-slate-200",
+    bullet: "text-slate-500",
+  },
+};
+
+function BarrierExpansion({
   details,
   conflictStats,
+  accentColor,
 }: {
   details: string[];
   conflictStats: { label: string; value: string; note: string }[];
+  accentColor: string;
 }) {
   return (
     <motion.div
@@ -265,9 +517,11 @@ function TimeConflictExpansion({
         {conflictStats.map((s) => (
           <div
             key={s.label}
-            className="bg-white/80 border border-amber-200 rounded-lg p-3 text-center"
+            className={`bg-white/80 border rounded-lg p-3 text-center ${accentMap[accentColor]?.border || "border-slate-200"}`}
           >
-            <div className="font-display text-2xl font-black text-amber-600">
+            <div
+              className={`font-display text-2xl font-black ${accentMap[accentColor]?.value || "text-slate-600"}`}
+            >
               {s.value}
             </div>
             <div className="text-xs font-semibold text-foreground/70 leading-tight mt-0.5">
@@ -283,7 +537,11 @@ function TimeConflictExpansion({
             key={d.slice(0, 20)}
             className="flex gap-2 text-sm text-foreground/80"
           >
-            <span className="text-amber-500 font-bold shrink-0 mt-0.5">▸</span>
+            <span
+              className={`font-bold shrink-0 mt-0.5 ${accentMap[accentColor]?.bullet || "text-slate-500"}`}
+            >
+              ▸
+            </span>
             <span>{d}</span>
           </li>
         ))}
@@ -682,15 +940,14 @@ export default function TheIssuePage() {
                         📊 {barrier.stat}
                       </div>
 
-                      {/* Expanded detail panel for Time Conflicts */}
-                      {barrier.title === "Time Conflicts" &&
-                        barrier.details &&
-                        barrier.conflictStats && (
-                          <TimeConflictExpansion
-                            details={barrier.details}
-                            conflictStats={barrier.conflictStats}
-                          />
-                        )}
+                      {/* Expanded detail panel for all barriers */}
+                      {barrier.details && barrier.conflictStats && (
+                        <BarrierExpansion
+                          details={barrier.details}
+                          conflictStats={barrier.conflictStats}
+                          accentColor={barrier.accentColor || "slate"}
+                        />
+                      )}
                     </CardContent>
                   </Card>
                 </motion.div>
