@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Textarea } from "@/components/ui/textarea";
+import { Check, Copy } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
@@ -500,27 +501,16 @@ export default function AdvocatePage() {
               <Button
                 variant="outline"
                 onClick={handleCopyLink}
-                className="gap-2"
+                className="gap-2 border-red-400 text-red-600 hover:bg-red-50 font-semibold"
                 data-ocid="petition.toggle"
               >
                 {copied ? (
                   <>
-                    <span>✓</span> Copied!
+                    <Check className="w-4 h-4" /> Copied!
                   </>
                 ) : (
                   <>
-                    <svg
-                      role="img"
-                      aria-label="Copy link"
-                      className="w-4 h-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <rect x="9" y="9" width="13" height="13" rx="2" />
-                      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
-                    </svg>{" "}
+                    <Copy className="w-4 h-4" />
                     Copy Link
                   </>
                 )}

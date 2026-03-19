@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { BookOpen, Menu, X } from "lucide-react";
+import { BookOpen, Check, Copy, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import AdvocatePage from "./pages/AdvocatePage";
@@ -23,6 +23,7 @@ const navItems: { id: Page; label: string }[] = [
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   function navigate(page: Page) {
     setCurrentPage(page);
@@ -45,6 +46,29 @@ export default function App() {
       case "resources":
         return <ResourcesPage />;
     }
+  }
+
+  const siteUrl =
+    typeof window !== "undefined"
+      ? window.location.href
+      : "https://equalaccess.app";
+
+  // Google Charts QR API
+  const qrSrc = `https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=${encodeURIComponent(siteUrl)}&chco=7f1d1d`;
+
+  async function copyQRCode() {
+    try {
+      const response = await fetch(qrSrc);
+      const blob = await response.blob();
+      await navigator.clipboard.write([
+        new ClipboardItem({ "image/png": blob }),
+      ]);
+    } catch {
+      // fallback: copy URL
+      await navigator.clipboard.writeText(siteUrl);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   }
 
   return (
@@ -147,26 +171,63 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-foreground text-primary-foreground py-8 mt-16">
+      <footer className="bg-red-900 text-primary-foreground py-10 mt-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
+            <div className="w-6 h-6 rounded bg-red-700 flex items-center justify-center">
               <BookOpen className="w-3 h-3 text-white" />
             </div>
             <span className="font-display font-bold text-white">
               Equal Access Learning
             </span>
           </div>
-          <p className="text-sm text-white/60 mb-3">
+          <p className="text-sm text-white/60 mb-6">
             Every student deserves a fair start.
           </p>
-          <p className="text-xs text-white/40">
+
+          {/* QR Code */}
+          <div
+            className="flex flex-col items-center gap-3 mb-6"
+            data-ocid="footer.card"
+          >
+            <p className="text-xs text-white/50 uppercase tracking-widest font-medium">
+              Scan to share this site
+            </p>
+            <div className="bg-white rounded-xl p-3 inline-block shadow-lg">
+              <img
+                src={qrSrc}
+                alt="QR code for this site"
+                width={100}
+                height={100}
+                className="block"
+              />
+            </div>
+            <button
+              type="button"
+              onClick={copyQRCode}
+              className="flex items-center gap-2 text-sm font-semibold text-white bg-red-700 hover:bg-red-600 px-5 py-2.5 rounded-full transition-colors shadow"
+              data-ocid="footer.toggle"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-4 h-4" /> Copied!
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4" /> Copy QR Code
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Nearly invisible attribution */}
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.07)" }}>
             &copy; {new Date().getFullYear()}. Built with ❤️ using{" "}
             <a
               href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-white/70 transition-colors"
+              style={{ color: "rgba(255,255,255,0.07)" }}
             >
               caffeine.ai
             </a>
