@@ -125,7 +125,7 @@ function RadioGroup({
           className={`px-4 py-2 rounded-lg border-2 text-sm font-medium transition-all ${
             value === opt
               ? "border-primary bg-primary text-primary-foreground"
-              : "border-border bg-white text-foreground hover:border-primary/50"
+              : "border-red-500 bg-white text-foreground hover:border-red-700"
           }`}
         >
           {opt}
@@ -159,7 +159,7 @@ function RatingRow({
             className={`w-12 h-12 rounded-xl border-2 font-bold text-sm transition-all ${
               value === n
                 ? "border-primary bg-primary text-primary-foreground"
-                : "border-border bg-white text-foreground hover:border-primary/50"
+                : "border-red-500 bg-white text-foreground hover:border-red-700"
             }`}
           >
             {n}
@@ -711,7 +711,7 @@ export default function SurveyPage({ onNavigate }: Props) {
                           className={`w-full text-left p-4 rounded-xl border-2 text-sm font-medium transition-all ${
                             answers.systemView === opt
                               ? "border-primary bg-primary/5"
-                              : "border-border bg-white hover:border-primary/50"
+                              : "border-red-500 bg-white hover:border-red-700"
                           }`}
                         >
                           {answers.systemView === opt ? "✓ " : ""}
